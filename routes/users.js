@@ -6,12 +6,14 @@ let DB = require('../db/db')
 
 // GET consultar coleccion de usuarios
 router.get('/', (req, res, next) => {
-  res.status(200).send(user)
+  let users = DB.select('users')
+  res.status(200).send(users)
 });
 
 // GET consultar usuario especifico
 router.get('/:id', (req, res, next) => {
   let id = parseInt(req.params.id)
+  let user = DB.select('users', id)
   res.status(200).send(user)
 });
 
