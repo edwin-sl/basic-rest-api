@@ -6,7 +6,7 @@ let DB = require('../db/db')
 
 // GET consultar coleccion de usuarios
 router.get('/', (req, res, next) => {
-  let users = DB.select('users')
+  let users = DB.select('users', null, req.query)
   res.status(200).send(users)
 });
 

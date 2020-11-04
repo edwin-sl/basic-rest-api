@@ -6,8 +6,8 @@ let DB = require('../db/db')
 
 // GET consultar coleccion de tareas
 router.get('/', (req, res, next) => {
-    let userId = parseInt(req.body.userId)
-    let todos = DB.select('todos', null, userId)
+    let filter = req.query
+    let todos = DB.select('todos', null, filter)
     res.status(200).send(todos)
 });
 
